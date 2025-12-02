@@ -203,6 +203,143 @@ Includes:
 This enables instant model deployment without the need for retraining.
 
 ---
+
+## 📊 PCA Analysis & Model Performance Results
+### 🔍 Principal Component Analysis (PCA) Results
+#### Dataset Overview
+```
+Dataset shape: (2,520,751 samples × 52 features)
+Number of attack classes: 7
+Target distribution:
+• Normal Traffic:    2,095,057 samples (83.1%)
+• DoS:                 193,745 samples (7.7%)
+• DDoS:                128,014 samples (5.1%)
+• Port Scanning:        90,694 samples (3.6%)
+• Brute Force:           9,150 samples (0.4%)
+• Web Attacks:           2,143 samples (0.08%)
+• Bots:                  1,948 samples (0.08%)
+```
+#### Dimensionality Reduction
+<img src="img\dimensionality_reduction.png">
+
+```
+Optimal number of components to explain 95.0% variance: 20
+Total variance explained by first 20 components: 0.9508
+```
+#### Top 20 Most Important Features for NIDS
+| Rank | Feature                    | Importance Score |
+|------|----------------------------|------------------|
+| 1    | Min Packet Length          | 0.154774         |
+| 2    | PSH Flag Count             | 0.150304         |
+| 3    | Bwd Packet Length Min      | 0.144673         |
+| 4    | Subflow Fwd Bytes          | 0.144076         |
+| 5    | Total Length of Fwd Packets| 0.144001         |
+| 6    | Bwd IAT Total              | 0.132763         |
+| 7    | Bwd Packet Length Mean     | 0.129960         |
+| 8    | Fwd Packet Length Mean     | 0.126202         |
+| 9    | Destination Port           | 0.124723         |
+| 10   | Active Max                 | 0.124153         |
+| 11   | Fwd Packet Length Std      | 0.124147         |
+| 12   | Average Packet Size        | 0.123569         |
+| 13   | Fwd Packet Length Max      | 0.122527         |
+| 14   | Bwd Packet Length Std      | 0.121820         |
+| 15   | Packet Length Variance     | 0.121274         |
+| 16   | Active Mean                | 0.120901         |
+| 17   | Bwd Packet Length Max      | 0.120738         |
+| 18   | Packet Length Mean         | 0.120551         |
+| 19   | Packet Length Std          | 0.119923         |
+| 20   | ACK Flag Count             | 0.119518         |
+
+#### Classification Performance with PCA Components
+
+```
+Classification accuracy using PCA components: 0.9985 (99.85%)
+```
+
+#### Detailed Performance Metrics:
+
+| Attack Type      | Precision | Recall | F1-Score | Support   |
+|------------------|-----------|--------|----------|-----------|
+| Bots             | 0.83      | 0.65   | 0.73     | 389       |
+| Brute Force      | 1.00      | 1.00   | 1.00     | 1,830     |
+| DDoS             | 1.00      | 1.00   | 1.00     | 25,603    |
+| DoS              | 1.00      | 1.00   | 1.00     | 38,749    |
+| Normal Traffic   | 1.00      | 1.00   | 1.00     | 419,012   |
+| Port Scanning    | 0.99      | 0.99   | 0.99     | 18,139    |
+| Web Attacks      | 0.99      | 0.97   | 0.98     | 429       |
+
+#### Overall Statistics:
+
+- **Macro Average:** 0.97 precision, 0.94 recall, 0.96 F1-score
+- **Weighted Average:** 1.00 across all metrics
+- **Total Test Samples:** 504,151
+
+### 🤖 Model Training Results
+#### XGBoost Model Performance
+
+<img src="img\feature_importance.png" alt="feature importance">
+
+```
+Accuracy: 0.9996 (99.96%)  
+Precision: 0.9996  
+Recall: 0.9996  
+F1-Score: 0.9996  
+```
+**Breakdown:**
+- Perfect detection of **DDoS, DoS, and normal traffic** (100% accuracy)
+- High detection rates for **port scanning and web attacks** (>99%)
+- Robust performance across all attack categories
+
+---
+
+#### Autoencoder Anomaly Detection
+
+ **Model Architecture:**
+- **Input dimension:** 20
+- **Encoding dimension:** 10
+- **Total parameters:** 7,518
+- **Training epochs:** 30
+
+<img src="img/MAE.png" alt ="MAE">
+
+**Final Training Results:**
+- **Validation loss:** 0.0468
+- **Validation MAE:** 0.0553
+
+**Anomaly Detection:**
+- **Threshold:** 0.1252 (95th percentile)
+- **Anomalies detected:** 10,407 (4.96% of test set)
+
+**Reconstruction Error Statistics:**
+- **Mean:** 0.0360
+- **Std:** 0.8902
+- **Max:** 227.9218
+
+---
+
+### Training Efficiency
+
+#### Autoencoder Training:
+- **Time per epoch:** 16–22 seconds
+- **Total training time:** ~9 minutes
+- **Model size:** 29.37 KB
+
+#### XGBoost Training:
+- Efficient gradient boosting
+- Fast convergence
+- Lightweight model
+
+## 🚀 Deployment Results
+### Web Interface Deployment
+<img src="img/web_deployment_result.png">
+
+### System Capabilities
+
+1. Real-time Processing: < 100ms inference time per sample
+2. Multi-model Ensemble: Combines XGBoost and Autoencoder
+3. Comprehensive Detection: 7 attack categories + anomalies
+4. User-friendly Interface: Web-based for easy access
+
 ## 🤝 Contributing
 
 **Contributions are welcomed! 🙌**
