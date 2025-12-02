@@ -55,7 +55,21 @@ The cleaned version used in this project includes the following improvements:
 This cleaned dataset forms the **starting point** of the PCA and model training workflow in this project.
 
 ---
+## 🔗 Dataset Download Links
 
+You may download the dataset from the following locations.
+
+**🔹 Cleaned & Preprocessed CICIDS2017 Dataset (Used for PCA Analysis)**  
+
+👉 **Official Dataset Page (Kaggle):** [Dataset from kaggle](https://www.kaggle.com/datasets/ericanacletoribeiro/cicids2017-cleaned-and-preprocessed) 
+
+👉 **Direct Download (google drive):** [Dataset from google drive](https://drive.google.com/file/d/1aZYqdwk5dT4kSOStpVfUykmEqE4Pyuvd/view?usp=drive_link)  
+
+**🔹 Fully processed CICIDS2017 Dataset (Used for model training)**  
+
+👉 **Direct Download (google drive):** [Dataset from google drive](https://drive.google.com/file/d/1J5-W5HCwSDLy8f25MjOYG_IlW06O7w7n/view?usp=drive_link)
+
+---
 ## 🔄 Project Workflow
 
 This NIDS pipeline follows a structured, three-stage workflow:
