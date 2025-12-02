@@ -130,6 +130,7 @@ Network-Intrusion-Detection-System/
 ├── README.md                            # This file
 └── requirements.txt                     # Dependencies
 ```
+---
 ## 🎯 Quick Start - Google Colab (Recommended for beginners)
 
 ### PCA Analysis
@@ -319,8 +320,6 @@ F1-Score: 0.9996
 - **Mean:** 0.0360
 - **Std:** 0.8902
 - **Max:** 227.9218
-
----
 
 ### Training Efficiency
 
