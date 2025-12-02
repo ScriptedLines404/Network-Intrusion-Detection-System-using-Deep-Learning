@@ -1,3 +1,4 @@
 *.pkl filter=lfs diff=lfs merge=lfs -text
 cicids2017_cleaned.csv filter=lfs diff=lfs merge=lfs -text
 cicids2017_cleaned_and_processed.csv filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
