@@ -17,3 +17,5 @@ joblib
 scipy
 ipython
 jupyter
+pickle
+joblib
