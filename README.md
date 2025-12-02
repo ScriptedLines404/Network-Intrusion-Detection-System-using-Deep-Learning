@@ -100,6 +100,13 @@ Network-Intrusion-Detection-System/
 ├── .gradio/                              # Gradio interface cache
 │   └── certificate.pem                   # SSL certificate
 │
+│
+├── img/                            # images
+│   ├── dimensionality_reduction.png
+│   ├── feature_importance.png
+│   ├── MAE.png
+│   └── web_deployment_result.png
+│
 ├── notebooks/                            # Interactive analysis
 │   ├── Network_Intrusion_Detection_System.ipynb
 │   └── PCA_Analysis.ipynb
@@ -290,8 +297,6 @@ F1-Score: 0.9996
 - High detection rates for **port scanning and web attacks** (>99%)
 - Robust performance across all attack categories
 
----
-
 #### Autoencoder Anomaly Detection
 
  **Model Architecture:**
@@ -328,7 +333,7 @@ F1-Score: 0.9996
 - Efficient gradient boosting
 - Fast convergence
 - Lightweight model
-
+---
 ## 🚀 Deployment Results
 ### Web Interface Deployment
 <img src="img/web_deployment_result.png">
@@ -339,7 +344,7 @@ F1-Score: 0.9996
 2. Multi-model Ensemble: Combines XGBoost and Autoencoder
 3. Comprehensive Detection: 7 attack categories + anomalies
 4. User-friendly Interface: Web-based for easy access
-
+---
 ## 🤝 Contributing
 
 **Contributions are welcomed! 🙌**
